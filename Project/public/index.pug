@@ -1,0 +1,42 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title Notes App
+    
+  body
+    h1 Notes App
+
+    #authSection
+      .section
+        h2 Register
+        input#regUsername(type="text" placeholder="Username")
+        input#regPassword(type="password" placeholder="Password")
+        button(onclick="register()") Register
+        #regMessage.message.hidden
+
+      .section
+        h2 Login
+        input#loginUsername(type="text" placeholder="Username")
+        input#loginPassword(type="password" placeholder="Password")
+        button(onclick="login()") Login
+        #loginMessage.message.hidden
+
+    #notesSection.hidden
+      .section
+        h2 Welcome, #[span#currentUser]!
+        button.btn-logout(onclick="logout()") Logout
+
+      .section
+        h2 Add Note
+        textarea#noteText(rows="3" placeholder="Write your note...")
+        button(onclick="addNote()") Add Note
+        #noteMessage.message.hidden
+
+      .section
+        h2 My Notes
+        button(onclick="loadNotes()") Refresh
+        #notesList
+
+        script(src="./script.js") 
