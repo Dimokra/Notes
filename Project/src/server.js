@@ -45,7 +45,10 @@ fastify.post('/register', {
     }
 
     await createUser(username, password)
-    reply.code(201).send({ message: 'User registered successfully' })
+    const token = await createToken(username)
+    reply.code(201).send({ message: 'User registered successfully, now LOG IN', 
+        token
+    })
 })
 
 fastify.post('/login', {
